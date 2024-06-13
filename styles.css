@@ -1,0 +1,407 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 20px 16px;
+    background-color: #FFFFFF;
+    max-width: 600px;
+    margin: auto;
+}
+
+header {
+    background-color: #FFFFFF;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+}
+
+button {
+    font-family: "Inter", sans-serif;
+}
+
+.notes-icon {
+    margin-right: 8px;
+}
+
+.search-container {
+    position: relative;
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 18px;
+    color: #888;
+}
+
+.search {
+    padding-left: 48px;
+}
+
+.clearSearchButton {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #888888;
+    cursor: pointer;
+}
+
+.no-notes {
+    text-align: center;
+    display: none;
+    padding: 36px 36px 24px;
+}
+
+.no-notes-icon {
+    font-size: 40px;
+}
+
+.no-notes h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    color: #1B1C1E;
+}
+
+.no-notes p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: center;
+    color: #3B3C3E;
+}
+
+.addNewButton {
+    display: none;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.note {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.note h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 23.8px;
+    text-align: left;
+    color: #1B1C1E;
+}
+
+.note p {
+    margin: 0 0 5px;
+    color: #3B3C3E;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.8px;
+    text-align: left;
+}
+
+.note button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #888888;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.note button:hover {
+    color: #333333;
+}
+
+.note .edit-button,
+.note .delete-button {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888888;
+    padding: 0;
+}
+
+.note .delete-button {
+    top: 12px;
+    right: 12px;
+}
+
+.note .edit-button {
+    top: 12px;
+    right: 42px;
+}
+
+.note .edit-button img,
+.note .delete-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.note .edit-button:hover,
+.note .delete-button:hover {
+    color: #333333;
+}
+
+.note .date-element {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.6px;
+    text-align: left;
+    color: #5B5C5E;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.delete-modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal-content {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-width: 1px 0;
+    border-color: #EEEFF0;
+    border-style: solid;
+    padding: 20px;
+    width: 93%;
+    max-width: 560px;
+    box-shadow: 0px 0px 16px 0px #00000014;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    resize: vertical;
+    font-size: 16px;
+    line-height: 25.6px;
+    font-weight: 400;
+}
+
+.modal-content input[type="text"] {
+    color: #000000;
+}
+
+.modal-content textarea {
+    color: #5B5C5E;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+    color: #1B1C1E;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+    text-align: left;
+}
+
+.delete-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-width: 1px 0;
+    border-color: #EEEFF0;
+    border-style: solid;
+    border-radius: 16px;
+    padding: 20px;
+    width: 80%;
+    max-width: 560px;
+    box-shadow: 0px 0px 16px 0px #00000014;
+}
+
+.delete-modal-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+}
+
+.delete-modal-content p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: left;
+    
+}
+
+.cancelButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.8px;
+    text-align: left;
+    color: #0F75B8;
+}
+
+.cancelButton:hover {
+    text-decoration: underline;
+}
+
+textarea {
+    width: calc(100% - 36px);
+    height: 210px;
+    resize: vertical;
+    position: relative;
+}
+
+.saveNoteButton {
+    position: absolute;
+    bottom: 66px;
+    right: 46px;
+    padding: 10px 20px;
+    background-color: #6a1b9a;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+input {
+    height: 24px;
+}
+
+input, textarea {
+    font-family: "Inter", sans-serif;
+    padding: 8px 12px 8px 12px;
+    gap: 12px;
+    border-radius: 12px;
+    background: #EEEFF0;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    color: #5B5C5E;
+}
+
+input:hover, textarea:hover {
+    background: #DCDEE0;
+}
+
+input:focus, textarea:focus, input:active, textarea:active {
+    background: #FFFFFF;
+    border: 1px solid #1B1C1E;
+    color: #1B1C1E;
+}
+
+.button-primary {
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid #BCBCBD;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    background: #6B3C9B;
+}
+
+.button-primary:hover {
+    background-color: #844DBA;
+}
+
+.button-primary:focus, .button-primary:active {
+    background-color: #5B2F87;
+}
+
+.button-secondary {
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid #BCBCBD;
+    color: #1B1C1E;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}
+
+.button-secondary:hover {
+    background-color: #E7E7E7;
+}
+
+.button-secondary:focus, .button-secondary:active {
+    background-color: #BCBCBD;
+}
+
+.button-wider {
+    padding: 8px 45px;
+}
+
+.addButtonContainer {
+    display: flex;
+    justify-content: center;
+}
